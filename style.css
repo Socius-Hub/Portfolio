@@ -216,6 +216,7 @@ span{
     transform-origin: center center;
     z-index: 3;
     padding-bottom: 13px; 
+    touch-action: none;
 }
 
 #card:active {
