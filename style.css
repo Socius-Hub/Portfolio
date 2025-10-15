@@ -35,7 +35,7 @@ header{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    transform: translateZ(0);
+    will-change: transform;
 }
 
 .logo{
@@ -126,6 +126,8 @@ section{
     background-color: black;
     position: relative;
     padding-top: 15rem;
+    width: 100%;
+    overflow: hidden;
 }
 
 .home-content {
@@ -135,6 +137,7 @@ section{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    will-change: transform;
 }
 
 .home .home-content h1{
@@ -214,7 +217,7 @@ span{
     font-size: 19.5px; 
     cursor: grab;
     user-select: none;
-    transform-origin: center center;
+    transform-origin: center top;
     z-index: 3;
     padding-bottom: 13px; 
     touch-action: none;
@@ -245,7 +248,6 @@ span{
         position: absolute;
         margin: 0 auto 4rem;
         left: auto;
-        transform: none;
         width: 328px;
         height: 437px;
         font-size: 27.3px;
@@ -280,7 +282,6 @@ span{
         align-items: center;
         text-align: center;
         margin-top: 48rem;
-        transform: translateZ(0); 
     }
 
     .home .home-content h1 {
