@@ -2,7 +2,7 @@ const ropeLength = 400;
 const joints = 8;
 const segmentLength = ropeLength / (joints - 1);
 const gravity = 1.6;
-const damping = 0.995;
+const damping = 0.99;
 const cardMass = 4.2;
 const constraintIterations = 64;
 let origin = { x: 0, y: 80 };
@@ -11,7 +11,7 @@ const breakpoint = 995;
 
 if (window.innerWidth <= breakpoint) {
     origin.x = window.innerWidth / 2;
-    origin.y = -170; 
+    origin.y = -80; 
 } else {
     origin.x = window.innerWidth * 0.25;
     origin.y = -104; 
@@ -134,7 +134,7 @@ card.addEventListener("pointermove", e => {
     if (dist > maxLength) {
       const ratio = maxLength / dist;
       tx = origin.x + dx * ratio;
-      ty = origin.y + dy * ratio;
+      ty = origin.y + ratio * dy;
     }
 
     last.oldX = last.x = tx;
@@ -152,8 +152,8 @@ card.addEventListener("pointerup", e => {
   kinematic = false;
   card.releasePointerCapture(e.pointerId);
   const last = ropePoints[ropePoints.length - 1];
-  last.oldX = last.x - mouseVX * 0.6;
-  last.oldY = last.y - mouseVY * 0.6;
+  last.oldX = last.x - mouseVX * 0.8;
+  last.oldY = last.y - mouseVY * 0.8;
 });
 
 window.addEventListener("resize", () => {

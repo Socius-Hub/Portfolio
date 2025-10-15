@@ -35,6 +35,7 @@ header{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transform: translateZ(0);
 }
 
 .logo{
@@ -245,15 +246,23 @@ span{
         margin: 0 auto 4rem;
         left: auto;
         transform: none;
+        width: 328px;
+        height: 437px;
+        font-size: 27.3px;
+        padding-bottom: 18.2px;
     }
     #card::before {
         content: ''; 
-        width: 52px; 
-        height: 13px;  
+        width: 73px; 
+        height: 18px;  
         background-color: #b74b4b; 
         border-radius: 10px; 
-        margin-bottom: 1.04rem;  
+        margin-bottom: 1.45rem;  
         border: 2px solid black;      
+    }
+
+    #card h2 {
+        font-size: 36.4px;
     }
     
     .home {
@@ -270,7 +279,7 @@ span{
         padding: 0 2rem;
         align-items: center;
         text-align: center;
-        margin-top: 30rem;
+        margin-top: 48rem;
         transform: translateZ(0); 
     }
 
@@ -286,12 +295,12 @@ span{
         font-size: 3rem;
     }
     .profile-pic {
-        width: 156px;            
-        height: 182px;           
+        width: 218px;            
+        height: 255px;           
         border-radius: 5%;
         object-fit: cover;
         border: 3px solid #000000;
-        margin-bottom: 1.3rem; 
+        margin-bottom: 1.82rem; 
     }
 }
 
