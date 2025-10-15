@@ -2,7 +2,8 @@ const ropeLength = 400;
 const joints = 8;
 const segmentLength = ropeLength / (joints - 1);
 const gravity = 1.6;
-const damping = 0.995;
+const isMobile = 'ontouchstart' in window;
+const damping = isMobile ? 0.985 : 0.995;
 const cardMass = 4.2;
 const constraintIterations = 64;
 let origin = { x: 0, y: 80 };
@@ -47,7 +48,7 @@ function applyVerletIntegration() {
 
         vy += gravity * (i === ropePoints.length - 1 ? cardMass : 1);
         
-        if (i === ropePoints.length - 1 && !isDragging && 'ontouchstart' in window) {
+        if (i === ropePoints.length - 1 && !isDragging && isMobile) {
             vx += tiltX;
             vy += tiltY;
         }
@@ -163,7 +164,7 @@ card.addEventListener("pointerup", e => {
     kinematic = false;
     card.releasePointerCapture(e.pointerId);
     const last = ropePoints[ropePoints.length - 1];
-    const momentumMultiplier = 'ontouchstart' in window ? 0.9 : 0.6;
+    const momentumMultiplier = isMobile ? 0.5 : 0.6;
     last.oldX = last.x - mouseVX * momentumMultiplier;
     last.oldY = last.y - mouseVY * momentumMultiplier;
 });
@@ -186,7 +187,23 @@ function handleOrientation(event) {
 }
 
 function setupDeviceOrientation() {
-    if (window.DeviceOrientationEvent && 'ontouchstart' in window) {
+    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        const permissionButton = document.getElementById('permission-button');
+        if (permissionButton) permissionButton.style.display = 'block';
+
+        permissionButton.addEventListener('click', () => {
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.addEventListener('deviceorientation', handleOrientation, { passive: true });
+                        permissionButton.style.display = 'none';
+                    } else {
+                        alert('Permissão negada. O controle por movimento não funcionará.');
+                    }
+                })
+                .catch(console.error);
+        });
+    } else if (window.DeviceOrientationEvent && isMobile) {
         window.addEventListener('deviceorientation', handleOrientation, { passive: true });
     }
 }
