@@ -2,7 +2,7 @@ const ropeLength = 400;
 const joints = 8;
 const segmentLength = ropeLength / (joints - 1);
 const gravity = 1.6;
-const damping = 0.99;
+const damping = 0.995;
 const cardMass = 4.2;
 const constraintIterations = 64;
 let origin = { x: 0, y: 80 };
@@ -11,10 +11,10 @@ const breakpoint = 995;
 
 if (window.innerWidth <= breakpoint) {
     origin.x = window.innerWidth / 2;
-    origin.y = -80; 
+    origin.y = -80;
 } else {
     origin.x = window.innerWidth * 0.25;
-    origin.y = -104; 
+    origin.y = -104;
 }
 }
 updateOriginPosition();
@@ -134,7 +134,7 @@ card.addEventListener("pointermove", e => {
     if (dist > maxLength) {
       const ratio = maxLength / dist;
       tx = origin.x + dx * ratio;
-      ty = origin.y + ratio * dy;
+      ty = origin.y + dy * ratio;
     }
 
     last.oldX = last.x = tx;
@@ -152,8 +152,8 @@ card.addEventListener("pointerup", e => {
   kinematic = false;
   card.releasePointerCapture(e.pointerId);
   const last = ropePoints[ropePoints.length - 1];
-  last.oldX = last.x - mouseVX * 0.8;
-  last.oldY = last.y - mouseVY * 0.8;
+  last.oldX = last.x - mouseVX * 0.6;
+  last.oldY = last.y - mouseVY * 0.6;
 });
 
 window.addEventListener("resize", () => {
@@ -182,7 +182,7 @@ document.querySelectorAll('.navbar a').forEach(link => {
 const typingElement = document.getElementById('typing');
 const words = [
     "Front-End",
-    "Web Design",        
+    "Web Design",
     "UI/UX Design"
 ];
 let wordIndex = 0;
@@ -192,7 +192,7 @@ let typingSpeed = 150;
 
 function type() {
     const currentWord = words[wordIndex];
-    
+
     if (isDeleting) {
         typingElement.textContent = currentWord.substring(0, charIndex - 1);
         charIndex--;

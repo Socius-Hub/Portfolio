@@ -11,6 +11,7 @@
 html{
     font-size: 62.5%;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -79,7 +80,7 @@ header{
     #menu-icon {
         display: block;
     }
-    
+
     .navbar {
         position: absolute;
         top: 100%;
@@ -126,8 +127,6 @@ section{
     background-color: black;
     position: relative;
     padding-top: 15rem;
-    width: 100%;
-    overflow: hidden;
 }
 
 .home-content {
@@ -201,8 +200,8 @@ span{
 
 #card {
     position: absolute;
-    width: 234px; 
-    height: 312px; 
+    width: 234px;
+    height: 312px;
     background: linear-gradient(145deg, #2b2b2b, #0f0f0f);
     border-radius: 8px;
     box-shadow: 0 20px 40px #0006, inset 0 2px 4px #fff2;
@@ -214,12 +213,12 @@ span{
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    font-size: 19.5px; 
+    font-size: 19.5px;
     cursor: grab;
     user-select: none;
-    transform-origin: center top;
+    transform-origin: center center;
     z-index: 3;
-    padding-bottom: 13px; 
+    padding-bottom: 13px;
     touch-action: none;
 }
 
@@ -229,8 +228,8 @@ span{
 }
 
 #card h2 {
-    margin: 0 0 13px 0; 
-    font-size: 26px; 
+    margin: 0 0 13px 0;
+    font-size: 26px;
     pointer-events: none;
 }
 
@@ -254,27 +253,27 @@ span{
         padding-bottom: 18.2px;
     }
     #card::before {
-        content: ''; 
-        width: 73px; 
-        height: 18px;  
-        background-color: #b74b4b; 
-        border-radius: 10px; 
-        margin-bottom: 1.45rem;  
-        border: 2px solid black;      
+        content: '';
+        width: 73px;
+        height: 18px;
+        background-color: #b74b4b;
+        border-radius: 10px;
+        margin-bottom: 1.45rem;
+        border: 2px solid black;
     }
 
     #card h2 {
         font-size: 36.4px;
     }
-    
+
     .home {
         flex-direction: column;
-        gap: 2rem; 
+        gap: 2rem;
         text-align: center;
         padding-top: 10rem;
-        justify-content: flex-start; 
+        justify-content: flex-start;
     }
-    
+
     .home-content {
         width: 100%;
         max-width: 100%;
@@ -296,12 +295,12 @@ span{
         font-size: 3rem;
     }
     .profile-pic {
-        width: 218px;            
-        height: 255px;           
+        width: 218px;
+        height: 255px;
         border-radius: 5%;
         object-fit: cover;
         border: 3px solid #000000;
-        margin-bottom: 1.82rem; 
+        margin-bottom: 1.82rem;
     }
 }
 
@@ -311,51 +310,51 @@ span{
         padding-left: 25%;
         padding-bottom: 20%;
     }
-    
+
     .home-content {
         margin-left: 20rem;
     }
- 
+
     #card {
-        width: 286px; 
-        height: 390px; 
-        font-size: 23.4px; 
+        width: 286px;
+        height: 390px;
+        font-size: 23.4px;
     }
 
     #card::before {
-        content: ''; 
-        width: 52px; 
-        height: 13px;  
-        background-color: #b74b4b; 
-        border-radius: 10px; 
-        margin-bottom: 2.34rem; 
-        border: 2px solid black;        
+        content: '';
+        width: 52px;
+        height: 13px;
+        background-color: #b74b4b;
+        border-radius: 10px;
+        margin-bottom: 2.34rem;
+        border: 2px solid black;
     }
 
     #card h2 {
-        font-size: 31.2px; 
+        font-size: 31.2px;
     }
     .profile-pic {
-        width: 182px;            
-        height: 234px;           
+        width: 182px;
+        height: 234px;
         border-radius: 5%;
         object-fit: cover;
         border: 3px solid #000000;
-        margin-bottom: 1.3rem; 
+        margin-bottom: 1.3rem;
     }
 }
 
 .job-title {
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (min-width: 996px) {
   .job-title {
     flex-direction: row;
-    align-items: baseline; 
-    gap: 1rem; 
+    align-items: baseline;
+    gap: 1rem;
   }
 }
 
