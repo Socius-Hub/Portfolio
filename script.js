@@ -164,7 +164,7 @@ card.addEventListener("pointerup", e => {
     kinematic = false;
     card.releasePointerCapture(e.pointerId);
     const last = ropePoints[ropePoints.length - 1];
-    const momentumMultiplier = isMobile ? 0.5 : 0.6;
+    const momentumMultiplier = isMobile ? 0.1 : 0.6;
     last.oldX = last.x - mouseVX * momentumMultiplier;
     last.oldY = last.y - mouseVY * momentumMultiplier;
 });
